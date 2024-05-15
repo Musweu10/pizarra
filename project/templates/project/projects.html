@@ -1,0 +1,25 @@
+{% extends 'core/base.html' %} {% block content %}
+<h1 class="mb-3">Projects</h1>
+<a
+  class="btn btn-primary btn-md"
+  href="{% url 'project:add-project' %}"
+  role="button"
+  >Add Project
+</a>
+
+<div class="container mt-5">
+  <div class="row justify-content-left align-items-left g-4 gap-4">
+    {% for project in projects %}
+
+    <div class="col-sm-12 col-md-3 bg-dark rounded py-5 px-5">
+      <a href="{% url 'project:project-details' project.id %}" style="text-decoration:none">
+        <h2 class="mb-3 text-white">{{project.name}}</h2>
+        <p class="text-sm text-white">{{project.description}}</p>
+      </a>
+    </div>
+
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock content %}

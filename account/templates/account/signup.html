@@ -1,0 +1,56 @@
+{% extends 'core/base.html' %} {% block content %}
+
+<div class="container py-5 my-3 bg-dark w-50 rounded-5">
+  <h2 class="text-white text-center">Sign Up</h2>
+
+  <form class="px-5" method="post" action="{% url 'account:signup' %}">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="Name" class="form-label text-white">Name</label>
+      <input
+        name="name"
+        type="text"
+        class="form-control"
+        id="Name"
+        aria-describedby="NameHelp"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="Email" class="form-label text-white">Email address</label>
+      <input
+        name="email"
+        type="email"
+        class="form-control"
+        id="Email"
+        aria-describedby="EmailHelp"
+      />
+      <div id="emailHelp" class="form-text text-white">
+        We'll never share your email with anyone else.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="Password1" class="form-label text-white">Password</label>
+      <input
+        name="password1"
+        type="password"
+        class="form-control"
+        id="Password1"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="Password2" class="form-label text-white">
+        Confirm Password</label
+      >
+      <input
+        name="password2"
+        type="password"
+        class="form-control"
+        id="Password2"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Sign Up</button>
+  </form>
+</div>
+
+{% endblock content %}

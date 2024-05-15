@@ -1,0 +1,31 @@
+{% extends 'core/base.html' %} {% block content %}
+    <h1 class="mb-3">{{ todolist.name }}</h1>
+
+    {% if todolist.description %}
+        <p class="text-sm text-white pb-2">{{ todolist.description }}</p>
+    {% endif %}
+
+    <div class="row">
+        <div class="col-6">
+            <a class="btn btn-success btn-md" href="{% url 'task:add-task' project.id todolist.id %}" role="button">Add Task</a>
+            <a class="btn btn-success btn-md" href="#" role="button">Mark as done </a>
+            <a class="btn btn-primary btn-md" href="{% url 'todolist:edit-todo' project.id todolist.id %}"
+               role="button"> Edit</a>
+            <a class="btn btn-danger btn-md" href="{% url 'todolist:delete-todo' project.id todolist.id %}" role="button">Delete</a>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row justify-content-left align-items-left g-12 gap-4">
+            {% for task in todolists.tasks.all %}
+                <div class="col-sm-12 col-md-12 bg-dark rounded py-5 px-5">
+                    <a href="#">
+                        <h2 class="mb-3 text-white">{{ task.name }}</h2>
+                        <p class="text-sm text-white">{{ task.description }}</p>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,29 @@
+{% extends 'core/base.html' %} 
+{% block content %}
+<h1 class="mb-3">Add Task</h1>
+<div class="container py-5 bg-dark w-50 rounded-5">
+    <form class="px-5" method="post" action=".">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="Name" class="form-label text-white">Task Name</label>
+          <input
+            name="name"
+            type="text"
+            class="form-control"
+            id="Name"
+            aria-describedby="NameHelp"
+            required
+            placeholder="Enter Project Name"
+          />
+        </div>
+    
+        <div class="mb-3">
+          <label for="Description" class="form-label text-white">Description</label>
+          <textarea name="description" class="form-control" id="Description"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    
+      </form>
+</div>
+
+{% endblock content %}
